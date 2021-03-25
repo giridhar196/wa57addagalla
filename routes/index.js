@@ -1,9 +1,15 @@
-var express = require('express');
-var router = express.Router();
-
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
-
-module.exports = router;
+var express=require('express')
+ 
+var router=express.Router();
+ 
+router.get('/',(req,res)=>{
+    let randomNumber=Math.floor(Math.random()*100)+1
+    let data=req.query.x
+    console.log(data)
+    res.render('compute',{
+        randSolution:`cbrt applied to ${randomNumber} is ${Math.cbrt(randomNumber)}`,
+        querySolution:` cbrt applied to ${data} is ${Math.cbrt(data)}`
+    })
+})
+ 
+module.exports=router
